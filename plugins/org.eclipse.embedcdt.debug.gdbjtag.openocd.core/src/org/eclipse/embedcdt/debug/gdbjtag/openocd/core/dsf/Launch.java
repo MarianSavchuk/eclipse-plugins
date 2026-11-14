@@ -48,6 +48,9 @@ public class Launch extends GnuMcuLaunch {
 
 	// ------------------------------------------------------------------------
 
+	// Must match the processType of the consoleColorProviders extension in openocd.ui.
+	private static final String SERVER_PROCESS_TYPE = "org.eclipse.embedcdt.debug.gdbjtag.openocd.gdbServer"; //$NON-NLS-1$
+
 	ILaunchConfiguration fConfig = null;
 	private DsfSession fSession;
 	private DsfServicesTracker fTracker;
@@ -184,6 +187,7 @@ public class Launch extends GnuMcuLaunch {
 			// First set attribute to specify we want to create the gdb process.
 			// Bug 210366
 			Map<String, String> attributes = new HashMap<>();
+			attributes.put(IProcess.ATTR_PROCESS_TYPE, SERVER_PROCESS_TYPE);
 			if (serverProc != null) {
 				newProcess = DebugPlugin.newProcess(this, serverProc, label, attributes);
 			}
