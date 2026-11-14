@@ -64,4 +64,11 @@
 		</page>
 	</extension>
 
+	<extension point="org.eclipse.debug.ui.consoleColorProviders">
+		<consoleColorProvider
+			class="org.eclipse.embedcdt.internal.debug.gdbjtag.openocd.ui.ServerConsoleColorProvider"
+			id="org.eclipse.embedcdt.debug.gdbjtag.openocd.ui.serverConsoleColorProvider"
+			processType="org.eclipse.embedcdt.debug.gdbjtag.openocd.gdbServer" />
+	</extension>
+
 </plugin>
